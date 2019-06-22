@@ -1,0 +1,18 @@
+.halfGrid {
+    margin-left: 1%;
+    margin-right: 1%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.halfGrid td, .halfGrid th {
+    border: 1px solid #aaa;
+    padding: 1px;
+    text-align: center;
+    width: 33%;
+    font-weight: normal;
+    white-space: normal;
+}
+.halfGrid th {
+ font-weight: bold;
+}

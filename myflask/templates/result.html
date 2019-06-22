@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Starter Template · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+    .container2 {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+
+    .container3 {
+      position: relative;
+      text-align: center;
+      color: white;
+      transition: transform .2s; /* Animation */
+      z-index:1;
+    }
+
+    .container3:hover {
+      transform: scale(2.0);
+      z-index:10;
+    }
+
+    .text {
+      z-index: 100;
+      position: absolute;
+      -webkit-text-fill-color: limegreen; /* Will override color (regardless of order) */
+      -webkit-text-stroke-width: 0.5px;
+      -webkit-text-stroke-color: black;
+      font-size: 18px;
+      font-weight: bold;
+      top: 70%;
+      left: 2%;
+      right: 0;
+      bottom: 0;
+    }   
+
+    .centered {
+      position: absolute;
+      color:black;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -100%);
+    }
+
+    .myimage {
+      padding: 0px;
+      outline: 5px solid black;
+      margin: 0 auto;
+    }
+    
+    .overlaycaption {
+      position: relative;
+      transition: transform .2s; /* Animation */
+      color:black;
+      font-weight:bold;
+      top: 15%;
+      left: 50%;
+      -webkit-text-fill-color: limegreen; /* Will override color (regardless of order) */
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+      transform: translate(-50%, -50%);
+    }
+
+    .overlaycaption:hover + zoom{
+      transform: scale(2.0);
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+    
+    </style>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../static/css/ztext.css" rel="stylesheet">
+    <link href="../static/css/nestedgrid.css" rel="stylesheet">
+    <link href="../static/css/starter-template.css" rel="stylesheet">
+    <link href="../static/css/bettergrid.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">GoodRiddance <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://offerup.com/">OfferUp</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://losangeles.craigslist.org/">Craigslist</a>
+          </li>
+        </ul>
+      </div>
+  </nav>
+
+<main role="main" class="container">
+    <!--
+    <div class="starter-template">
+      <h1>Good Riddance</h1>
+      <p class="lead">The smarter way to sell your furniture.</p>
+    </div> -->
+    <!--
+    <div class = "container">
+      <form  action="/output" method="POST">
+        <div class="form-group">
+          <label for="city_name">City:</label>
+          <input type="text" id=city_name" name='city_name' placeholder="e.g., Los Angeles">
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-default btn-lg"></button>
+        </div>
+
+      </form>
+    </div> {{ form.cityname }} -->
+
+           
+    <p></p>
+
+    <div class="container">
+      <div class="starter-template">
+        <h3>Upload Successful!</h3>
+        <p class="lead">Getting the result.<br>Here's items that are like your {{the_result}}</p>
+        <p class="lead">To sell your {{the_result}} quickly, sell on {{early_result[0]}} for ${{early_result[1]}}.</p>
+        <p class="lead">If you can wait, set the price to ${{late_result[1]}} on {{late_result[0]}}.</p>
+      </div>
+
+    <!-- <table>
+            <tbody>
+            {% for img_url in imgurl %}
+                <tr>
+                    <td><img src="{{ img_url }}" style="width:40%" alt="{{ img_url }}"></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+    </table> -->
+
+    <div class="container2">
+      <td><img src="{{ input_path }}" style="width:40%;outline: 5px solid black;" alt="Your input image"></td>
+      <div class="centered">Your uploaded image</div>
+    </div>
+
+    <p></p>
+    <p></p>
+
+<div class="wrapper">
+  <div class="box a">OfferUp</div>
+  <div class="box b">Craigslist</div>
+  <div class="box c">
+          <div class="container3">
+            <img class="myimage" src="{{ offerup_imgurl[0] }}" style="width:55%">
+            <p class=text>${{offerup_prices[2]}}&nbsp;up&nbsp;for&nbsp;{{ offerup_days[2]}}</p>
+          </div>
+          <div class="container3">
+            <img class="myimage" src="{{ offerup_imgurl[1] }}" style="width:55%">
+            <p class=text>${{offerup_prices[1]}}&nbsp;up&nbsp;for&nbsp;{{ offerup_days[1]}}</p>
+          </div>
+          <div class="container3">
+            <img class="myimage" src="{{ offerup_imgurl[2] }}" style="width:55%">
+            <p class=text>${{offerup_prices[2]}}&nbsp;up&nbsp;for&nbsp;{{ offerup_days[2]}}</p>
+          </div>
+
+          <div class="container3">
+            <img class="myimage" src="{{ offerup_imgurl[3] }}" style="width:55%">
+            <p class=text>${{offerup_prices[3]}}&nbsp;up&nbsp;for&nbsp;{{ offerup_days[3]}}</p>
+          </div>
+          <div class="container3">
+            <img class="myimage" src="{{ offerup_imgurl[4] }}" style="width:55%">
+            <p class=text>${{offerup_prices[4]}}&nbsp;up&nbsp;for&nbsp;{{ offerup_days[4]}}</p>
+          </div>
+          <div class="container3">
+            <img class="myimage" src="{{ offerup_imgurl[5] }}" style="width:55%">
+            <p class=text>${{offerup_prices[5]}}&nbsp;up&nbsp;for&nbsp;{{ offerup_days[5]}}</p>
+          </div>
+
+          <div class="container3">
+            <img class="myimage" src="{{ offerup_imgurl[6] }}" style="width:55%">
+            <p class=text>${{offerup_prices[6]}}&nbsp;up&nbsp;for&nbsp;{{ offerup_days[6]}}</p>
+          </div>
+          <div class="container3">
+            <img class="myimage" src="{{ offerup_imgurl[7] }}" style="width:55%">
+            <p class=text>${{offerup_prices[7]}}&nbsp;up&nbsp;for&nbsp;{{ offerup_days[7]}}</p>
+          </div>
+            <div class="container3">
+            <img class="myimage" src="{{ offerup_imgurl[8] }}" style="width:55%">
+          <p class=text>${{offerup_prices[8]}}&nbsp;up&nbsp;for&nbsp;{{ offerup_days[8]}}</p>
+          </div>
+
+          <div class="container3">
+            <img class="myimage" src="{{ offerup_imgurl[9] }}" style="width:55%">
+            <p class=text>${{offerup_prices[9]}}&nbsp;up&nbsp;for&nbsp;{{ offerup_days[9]}}</p>
+          </div>
+          <div class="container3">
+           <img class="myimage" src="{{ offerup_imgurl[10] }}" style="width:55%">
+            <p class=text>${{offerup_prices[10]}}&nbsp;up&nbsp;for&nbsp;{{ offerup_days[10]}}</p>
+          </div>
+          <div class="container3">
+            <img class="myimage" src="{{ offerup_imgurl[11] }}" style="width:55%">
+            <p class=text>${{offerup_prices[11]}}&nbsp;up&nbsp;for&nbsp;{{ offerup_days[11]}}</p>
+          </div>
+  </div> 
+  <div class="box d">
+          <div class="container3">
+          <img class="myimage" src="{{ craigslist_imgurl[0] }}" style="width:55%">
+          <p class=text>${{craigslist_prices[2]}}&nbsp;up&nbsp;for&nbsp;{{ craigslist_days[2]}}</p>
+          </div>
+          <div class="container3">
+          <img class="myimage" src="{{ craigslist_imgurl[1] }}" style="width:55%">
+          <p class=text>${{craigslist_prices[1]}}&nbsp;up&nbsp;for&nbsp;{{ craigslist_days[1]}}</p>
+          </div>
+          <div class="container3">
+          <img class="myimage" src="{{ craigslist_imgurl[2] }}" style="width:55%">
+          <p class=text>${{craigslist_prices[2]}}&nbsp;up&nbsp;for&nbsp;{{ craigslist_days[2]}}</p>
+          </div>
+
+          <div class="container3">
+          <img class="myimage" src="{{ craigslist_imgurl[3] }}" style="width:55%">
+          <p class=text>${{craigslist_prices[3]}}&nbsp;up&nbsp;for&nbsp;{{ craigslist_days[3]}}</p>
+          </div>
+          <div class="container3">
+          <img class="myimage" src="{{ craigslist_imgurl[4] }}" style="width:55%">
+          <p class=text>${{craigslist_prices[4]}}&nbsp;up&nbsp;for&nbsp;{{ craigslist_days[4]}}</p>
+          </div>
+          <div class="container3">
+          <img class="myimage" src="{{ craigslist_imgurl[5] }}" style="width:55%">
+          <p class=text>${{craigslist_prices[5]}}&nbsp;up&nbsp;for&nbsp;{{ craigslist_days[5]}}</p>
+          </div>
+
+          <div class="container3">
+          <img class="myimage" src="{{ craigslist_imgurl[6] }}" style="width:55%">
+          <p class=text>${{craigslist_prices[6]}}&nbsp;up&nbsp;for&nbsp;{{ craigslist_days[6]}}</p>
+          </div>
+          <div class="container3">
+          <img class="myimage" src="{{ craigslist_imgurl[7] }}" style="width:55%">
+          <p class=text>${{craigslist_prices[7]}}&nbsp;up&nbsp;for&nbsp;{{ craigslist_days[7]}}</p>
+          </div>
+          <div class="container3">
+          <img class="myimage" src="{{ craigslist_imgurl[8] }}" style="width:55%">
+          <p class=text>${{craigslist_prices[8]}}&nbsp;up&nbsp;for&nbsp;{{ craigslist_days[8]}}</p>
+          </div>
+
+          <div class="container3">
+          <img class="myimage" src="{{ craigslist_imgurl[9] }}" style="width:55%">
+          <p class=text>${{craigslist_prices[9]}}&nbsp;up&nbsp;for&nbsp;{{ craigslist_days[9]}}</p>
+          </div>
+          <div class="container3">
+          <img class="myimage" src="{{ craigslist_imgurl[10] }}" style="width:55%">
+          <p class=text>${{craigslist_prices[10]}}&nbsp;up&nbsp;for&nbsp;{{ craigslist_days[10]}}</p>
+          </div>
+          <div class="container3">
+          <img class="myimage" src="{{ craigslist_imgurl[11] }}" style="width:55%">
+          <p class=text>${{craigslist_prices[11]}}&nbsp;up&nbsp;for&nbsp;{{ craigslist_days[11]}}</p>
+          </div>
+  </div>
+</div>
+
+    <p></p><br>
+    <p></p><br>
+    <p></p><br>
+    <p></p><br>
+
+
+    <p></p>
+    <p></p>
+    <p></p>
+<!-- offerup up -->
+
+    <p></p><br>
+    <p></p><br>
+    <p></p><br>
+
+
+    <script src="../static/js/imagegrid.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+     </div><!-- /.container -->
+   
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+</main><!-- /.container -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
+</html>
