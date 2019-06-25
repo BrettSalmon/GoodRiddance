@@ -1,0 +1,63 @@
+Abilene
+Addison
+Amarillo
+Arlington
+Austin
+Baytown
+Beaumont
+Brownsville
+Bryan
+Carrollton
+Cedar Hill
+Channelview
+Conroe
+Corpus Christi
+Dallas
+Denton
+Duncanville
+El Paso
+Euless
+Farmers Branch
+Fort Worth
+Frisco
+Garland
+Grand Prairie
+Harlingen
+Houston
+Humble
+Irving
+Katy
+Killeen
+Laredo
+Lewisville
+Longview
+Lubbock
+Lufkin
+Mansfield
+Mcallen
+McKinney
+Mesquite
+Midland
+Midlothian
+Nacogdoches
+Odessa
+Pearland
+Pflugerville
+Plano
+Port Arthur
+Richardson
+Round Rock
+San Angelo
+San Antonio
+San Marcos
+Sherman
+Stafford
+Sugar Land
+Sweetwater
+Temple
+Tomball
+Tyler
+Victoria
+Waco
+Weslaco
+Wichita Falls

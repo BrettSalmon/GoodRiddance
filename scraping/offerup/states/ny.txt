@@ -1,0 +1,18 @@
+Albany
+Binghamton
+Bronx
+Brooklyn
+Buffalo
+Elmira
+Hudson
+New York
+Plattsburgh
+Queens
+Rochester
+Schenectady
+Staten Island
+Syracuse
+Troy
+Utica
+Watertown
+Yonkers

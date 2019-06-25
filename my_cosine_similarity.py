@@ -175,7 +175,7 @@ def run(item, city, thedir, site, input_file=False,
 
     # Get top N similar image ID numbers
     top_N_idx = (np.argsort(cosine_similarities)[-topn:])[::-1]
-   
+
     # Get top 10 similar image files
     topfiles = [file_index[i] for i in top_N_idx]
    
@@ -192,7 +192,7 @@ def run(item, city, thedir, site, input_file=False,
 
     print("%% Cosine similarity complete. Matched "+
           "images are in myflask/static/matches/"+site)
-    return barefiles, match_ids, (np.sort(cosine_similarities)[-topn:])[::-1]
+    return barefiles, match_ids, (cosine_similarities[top_N_idx])
 
 ##########################################################################
 

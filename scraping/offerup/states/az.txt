@@ -1,0 +1,23 @@
+Apache Junction
+Avondale
+Buckeye
+Casa Grande
+Chandler
+El Mirage
+Gilbert
+Goodyear
+Greer
+Litchfield Park
+Maricopa
+Mesa
+Phoenix
+Queen Creek
+San Tan Valley
+Scottsdale
+Sierra Vista
+Sun City
+Surprise
+Tempe
+Tolleson
+Tucson
+Yuma

@@ -1,1 +1,4 @@
 **/*_images
+**/*.swp
+*.DS_Store
+**/*.npy

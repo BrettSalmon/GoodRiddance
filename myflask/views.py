@@ -18,12 +18,12 @@ import my_cosine_similarity as cs
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
 
-user = 'bsalmon' #add your username here (same as previous postgreSQL)            
-host = 'localhost'
-dbname = 'goodriddnce'
-db = create_engine('postgres://%s%s/%s'%(user,host,dbname))
-con = None
-con = psycopg2.connect(database = dbname, user = user)
+#user = 'bsalmon' #add your username here (same as previous postgreSQL)            
+#host = 'localhost'
+#dbname = 'goodriddnce'
+#db = create_engine('postgres://%s%s/%s'%(user,host,dbname))
+#con = None
+#con = psycopg2.connect(database = dbname, user = user)
 
 class UploadForm(FlaskForm):
     city = StringField(u'City', render_kw={"placeholder": "e.g., Los Angeles"})
@@ -89,6 +89,9 @@ def result():
 
     #(fiducial_df.loc[output.iloc[0]['id'],'imgurl'])
     for i in range(12):
+        print(i)
+        print(offerup_image_ids[i])
+
         offerup_valdays.append(offerup_df.loc[offerup_image_ids[i],'time_since_posting']) 
         tdays= round(offerup_df.loc[offerup_image_ids[i],'time_since_posting'])
         if tdays==0:tdays='< 1 day'
@@ -112,18 +115,20 @@ def result():
         craigslist_imgurl.append(craigslist_df.loc[craigslist_image_ids[i],'imgurl'])
 
     #copyfile(thedir+city+'/'+item+'_images/'+filename,'myflask/static/uploads/')
-    the_result=str(item) +' around '+str(cityname)
+    the_item=str(item) 
+    the_city=str(cityname)
 
     from final_answer import final_answer
     (early_result, late_result) = final_answer(offerup_prices,offerup_valdays, 
                                                craigslist_prices,craigslist_valdays)
     early_result[0]=early_result[0].title()
     late_result[0]=late_result[0].title()
-    early_result[1]=round(early_result[1])
-    late_result[1]=round(late_result[1])
+    early_result[1]=int(round(early_result[1]))
+    late_result[1]=int(round(late_result[1]))
 
     ## do whatever you need to do here, then send output to show in HTML
-    return render_template('result.html', form=form, the_result=the_result, 
+    return render_template('result.html', form=form, the_item=the_item,
+                            the_city=the_city,
                             offerup_prices=offerup_prices, offerup_imgurl=offerup_imgurl, 
                             offerup_days=offerup_days,
                             craigslist_prices=craigslist_prices, craigslist_imgurl=craigslist_imgurl, 
