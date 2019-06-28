@@ -25,6 +25,8 @@ from sematic_utils import load_paired_img_wrd
 from vector_search import vector_search
 from sklearn.metrics.pairwise import cosine_similarity
 
+import tensorflow as tf
+
 def load_images(folder):
     class_names = [fold for fold in os.listdir(folder) if ".DS" not in fold]
     image_list = []  
@@ -50,7 +52,7 @@ def load_images(folder):
 
     return img_data, paths_list
 
-def load_headless_pretrained_model():
+def load_headless_pretrained_model(pretrained_exists=False):
     """
     Loads the pretrained version of VGG with the last layer cut off
     :return: pre-trained headless VGG16 Keras Model
@@ -58,7 +60,10 @@ def load_headless_pretrained_model():
     #Before prediction
     K.clear_session()
 
-    pretrained_vgg16 = VGG16(weights='imagenet', include_top=True)
+    if not pretrained_exists:
+        pretrained_vgg16 = VGG16(weights='imagenet', include_top=True)
+    else:
+        pretrained_vgg16 = pretrained_exists
     model = Model(inputs=pretrained_vgg16.input,
                   outputs=pretrained_vgg16.get_layer('fc1').output)
     return model
@@ -92,7 +97,8 @@ def generate_features(image_paths, model):
 
 def run(item, city, thedir, site, input_file=False,
         outdir='myflask/static/matches/', first=False,
-        sold=False,
+        features_only=False,
+        sold=False,model=False,pretrained_exists=False,
         topn=12):
     """
         Puts everything together: loads the model, loads the features, 
@@ -107,6 +113,12 @@ def run(item, city, thedir, site, input_file=False,
         Returns:
             Nothing, but copies matching items to a temporary directory
     """
+
+    K.clear_session()
+    tf.compat.v1.reset_default_graph()
+    tf.reset_default_graph()
+    tf.keras.backend.clear_session()
+
     #item='couch'
     #city='los_angeles'
     #thedir='/Users/bsalmon/BrettSalmon/data_science/Insight/goodriddance/scraping/offerup/'
@@ -130,13 +142,12 @@ def run(item, city, thedir, site, input_file=False,
             os.mkdir(file_mapping_path)
         
 
-   
-    model = load_headless_pretrained_model()
+    model = load_headless_pretrained_model(pretrained_exists=pretrained_exists)
 
     # I'll load all images into memory because it's not that many
     #images=np.load(features_path+'images.npy')
     #image_paths=np.load(features_path+'image_paths.npy')
-    if first:
+    if first or features_only:
         if item=='couch':plural='es'
         else: plural='s'
         print("%% You are generating the image features for all "+item+plural+" from "+city)
@@ -146,6 +157,8 @@ def run(item, city, thedir, site, input_file=False,
 
         images_features, file_index = generate_features(image_paths, model)
         vector_search.save_features(features_path, images_features, file_mapping_path, file_index)
+        if features_only:
+            return
     else:
         print("%% You already have the image features in hand-- loading them from disk.")
         images_features, file_index = vector_search.load_features(features_path, file_mapping_path)
@@ -158,8 +171,13 @@ def run(item, city, thedir, site, input_file=False,
         for ifile in tfiles:
             if ifile.endswith(".jpg"):input_file='myflask/static/uploads/'+ifile
 
+    K.clear_session()
+    tf.compat.v1.reset_default_graph()
+    tf.reset_default_graph()
+    tf.keras.backend.clear_session()
+    model = load_headless_pretrained_model(pretrained_exists=pretrained_exists)
+
     # Load in the single input image from the user
-    print(input_file)
     img = image.load_img(input_file, target_size=(224,224))
     x_raw = image.img_to_array(img)
     x_expand = np.expand_dims(x_raw,axis=0)
